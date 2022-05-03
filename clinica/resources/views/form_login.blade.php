@@ -25,7 +25,8 @@
                     <div class="col-md-7 d-flex align-items-center">
                         <div class="card-body text-black">
 
-                            <form action="inicio.html" method="post">
+                            <form action="{{route('logar')}}" method="post">
+                                @csrf
 
                                 <h5 class="pb-3">Entre em sua conta</h5>
 

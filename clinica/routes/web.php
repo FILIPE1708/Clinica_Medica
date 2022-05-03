@@ -13,8 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+#Rotas para realizar login
+Route::get('/', [\App\Http\Controllers\LoginController::class, 'login'])->name('login');
+Route::get('/login', [\App\Http\Controllers\LoginController::class, 'login']);
+Route::post('/logar', [\App\Http\Controllers\LoginController::class, 'logar'])->name('logar');
 
-Route::get('/login', [\App\Http\Controllers\LoginController::class, 'formLogin']);
+#Inicio da página
+Route::get('/inicio', function (){
+   return view('inicio');
+})->name('inicio');
+
+#Rotas recepcionista
+Route::prefix('recepcionista')->group(function () {
+    Route::get('/novo', [\App\Http\Controllers\RecepcionistaController::class, 'novo'])->name('recepcionista.novo');
+});
