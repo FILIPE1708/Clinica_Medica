@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-#Rotas para realizar login
+#Rotas login
 Route::get('/', [\App\Http\Controllers\LoginController::class, 'login'])->name('login');
 Route::get('/login', [\App\Http\Controllers\LoginController::class, 'login']);
 Route::post('/logar', [\App\Http\Controllers\LoginController::class, 'logar'])->name('logar');
@@ -26,4 +26,16 @@ Route::get('/inicio', function (){
 #Rotas recepcionista
 Route::prefix('recepcionista')->group(function () {
     Route::get('/novo', [\App\Http\Controllers\RecepcionistaController::class, 'novo'])->name('recepcionista.novo');
+    Route::get('/listar', [\App\Http\Controllers\RecepcionistaController::class, 'listar'])->name('recepcionista.listar');
+});
+
+#Rotas medico
+Route::prefix('medico')->group(function () {
+    Route::get('/novo', [\App\Http\Controllers\MedicoController::class, 'novo'])->name('medico.novo');
+    Route::get('/listar', [\App\Http\Controllers\MedicoController::class, 'listar'])->name('medico.listar');
+});
+
+#Rotas consulta
+Route::prefix('consulta')->group(function () {
+    Route::get('/novo', [\App\Http\Controllers\ConsultaController::class, 'novo'])->name('consulta.novo');
 });

@@ -10,4 +10,9 @@ class RecepcionistaController extends Controller
     {
         return view('recepcionista.cadastro_recepcionista');
     }
+
+    public function listar()
+    {
+        return view('recepcionista.listar_recepcionista');
+    }
 }

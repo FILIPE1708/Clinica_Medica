@@ -5,7 +5,7 @@
             <div class="card border-primary mt-5">
                 <div class="card-header bg-primary">
                     <div class="card-title">
-                        <h4 class="text-center text-white"><strong>Cadastrar Recepcionista</strong></h4>
+                        <h4 class="text-center text-white"><strong>Cadastrar Médico</strong></h4>
                     </div>
                 </div>
 
@@ -48,26 +48,32 @@
                         </div>
 
                         <div class="row mt-3">
-                            <div class="col-md-5">
+                            <div class="col-md-4">
                                 <label for="cpf"><strong>CPF:</strong></label>
                                 <input type="text" id="cpf" name="cpf" class="form-control" required>
                             </div>
 
-                            <div class="col-md-5">
+                            <div class="col-md-4">
                                 <label for="rg"><strong>RG:</strong></label>
                                 <input type="text" id="rg" name="rg" class="form-control" required>
                             </div>
 
-                            <div class="col-md-2">
-                                <label for="cep"><strong>CEP:</strong></label>
-                                <input type="text" id="cep" name="cep" class="form-control" required>
+                            <div class="col-md-4">
+                                <label for="crm"><strong>CRM:</strong></label>
+                                <input type="text" id="crm" name="crm" class="form-control" required>
                             </div>
                         </div>
 
                         <div class="row mt-3">
+
                             <div class="col-md-6">
-                                <label for="logradouro"><strong>Logradouro:</strong></label>
-                                <input type="text" id="logradouro" name="logradouro" class="form-control" required>
+                                <label for="especializacao"><strong>Especialização:</strong></label>
+                                <input type="text" id="especializacao" name="especializacao" class="form-control" required>
+                            </div>
+
+                            <div class="col-md-3">
+                                <label for="cep"><strong>CEP:</strong></label>
+                                <input type="text" id="cep" name="cep" class="form-control" required>
                             </div>
 
                             <div class="col-md-3">
@@ -75,24 +81,32 @@
                                 <input type="text" id="bairro" name="logradouro" class="form-control" required>
                             </div>
 
+                        </div>
+
+                        <div class="row mt-3">
+
+                            <div class="col-md-6">
+                                <label for="logradouro"><strong>Logradouro:</strong></label>
+                                <input type="text" id="logradouro" name="logradouro" class="form-control" required>
+                            </div>
+
                             <div class="col-md-3">
                                 <label for="cidade"><strong>Cidade:</strong></label>
                                 <input type="text" id="cidade" name="cidade" class="form-control" required>
                             </div>
 
-                        </div>
-
-                        <div class="row mt-3 d-flex justify-content-center">
                             <div class="col-md-3">
                                 <label for="numero"><strong>Numero:</strong></label>
                                 <input type="number" id="numero" name="numero" class="form-control" required>
                             </div>
 
+                        </div>
+
+                        <div class="row d-flex justify-content-center">
                             <div class="col-md-3">
                                 <label for="estado"><strong>Estado:</strong></label>
                                 <input type="text" id="estado" name="estado" class="form-control" required>
                             </div>
-
                         </div>
 
                         <div class="row d-flex justify-content-center">

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -25,13 +25,21 @@
                             <a href="{{route('recepcionista.novo')}}">Cadastrar Recepcionista</a>
                         </li>
                         <li>
-                            <a href="">Lista De Recepcionistas</a>
+                            <a href="{{route('recepcionista.listar')}}">Lista De Recepcionistas</a>
                         </li>
                         <li>
-                            <a href="">Cadastrar Médico</a>
+                            <a href="{{route('medico.novo')}}">Cadastrar Médico</a>
                         </li>
                         <li>
-                            <a href="">Lista De Médicos</a>
+                            <a href="{{route('medico.listar')}}">Lista De Médicos</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#consultaSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Consulta</a>
+                    <ul class="collapse list-unstyled" id="consultaSubmenu">
+                        <li>
+                            <a href="{{route('consulta.novo')}}">Agendar Consulta</a>
                         </li>
                     </ul>
                 </li>
