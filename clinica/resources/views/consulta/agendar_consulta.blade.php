@@ -11,7 +11,25 @@
 
                 <div class="card-body text-black-50">
 
-                    <form action="" method="post">
+                    @foreach($errors->all() as $error)
+                        <div class="alert alert-danger text-center" role="alert">
+                            {{$error}}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    @endforeach
+
+                        @if(old('data_consulta'))
+                            <div class="alert alert-success text-center" role="alert">
+                                Consulta cadastrada para {{date('d/m/Y', strtotime(old('data_consulta')))}} com sucesso!!
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        @endif
+
+                    <form action="{{route('consulta.cadastrar')}}" method="post">
                         @csrf
                         <div class="row">
                             <div class="col-md-6">

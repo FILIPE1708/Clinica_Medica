@@ -25,6 +25,15 @@
                     <div class="col-md-7 d-flex align-items-center">
                         <div class="card-body text-black">
 
+                            @if(session('error'))
+                                <div class="alert alert-danger text-center" role="alert">
+                                    {{session('error')}}
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            @endif
+
                             <form action="{{route('logar')}}" method="post">
                                 @csrf
 
@@ -32,12 +41,12 @@
 
                                 <div class="mb-4">
                                     <label for="email">Email</label>
-                                    <input type="email" id="email" name="email" class="form-control form-control-lg" required/>
+                                    <input type="email" id="email" name="email" class="form-control form-control-lg"/>
                                 </div>
 
                                 <div class="mb-4">
                                     <label for="senha">Senha</label>
-                                    <input type="password" id="senha" name="senha" class="form-control form-control-lg" required/>
+                                    <input type="password" id="senha" name="senha" class="form-control form-control-lg" />
                                 </div>
 
                                 <div class="mt-2 mb-4">

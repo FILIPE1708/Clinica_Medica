@@ -10,4 +10,13 @@ class ConsultaController extends Controller
     {
         return view('consulta.agendar_consulta');
     }
+
+    public function cadastrar(Request $request)
+    {
+        $request->validate([
+            'data_consulta' => 'required|date'
+        ]);
+
+        return redirect()->back()->withInput();
+    }
 }

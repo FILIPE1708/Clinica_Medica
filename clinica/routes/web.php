@@ -27,15 +27,18 @@ Route::get('/inicio', function (){
 Route::prefix('recepcionista')->group(function () {
     Route::get('/novo', [\App\Http\Controllers\RecepcionistaController::class, 'novo'])->name('recepcionista.novo');
     Route::get('/listar', [\App\Http\Controllers\RecepcionistaController::class, 'listar'])->name('recepcionista.listar');
+    Route::post('/cadastrar', [\App\Http\Controllers\RecepcionistaController::class, 'cadastrar'])->name('recepcionista.cadastrar');
 });
 
 #Rotas medico
 Route::prefix('medico')->group(function () {
     Route::get('/novo', [\App\Http\Controllers\MedicoController::class, 'novo'])->name('medico.novo');
     Route::get('/listar', [\App\Http\Controllers\MedicoController::class, 'listar'])->name('medico.listar');
+    Route::post('/cadastrar', [\App\Http\Controllers\MedicoController::class, 'cadastrar'])->name('medico.cadastrar');
 });
 
 #Rotas consulta
 Route::prefix('consulta')->group(function () {
     Route::get('/novo', [\App\Http\Controllers\ConsultaController::class, 'novo'])->name('consulta.novo');
+    Route::post('/cadastrar', [\App\Http\Controllers\ConsultaController::class, 'cadastrar'])->name('consulta.cadastrar');
 });

@@ -11,8 +11,13 @@ class LoginController extends Controller
         return view('form_login');
     }
 
-    public function logar()
+    public function logar(Request $request)
     {
-       return redirect()->route('inicio');
+        if ($request->email == 'filipecavalcante17@gmail.com' && $request->senha == '123456') {
+            return redirect()->route('inicio');
+        }
+
+        else
+            return redirect()->back()->with('error', 'Sua senha ou login estão incorretos.');
     }
 }

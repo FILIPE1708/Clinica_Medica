@@ -12,6 +12,19 @@
                 <div class="card-body text-black-50">
 
                     <div class="row">
+                        <div class="col-md-12 mt-2 d-flex justify-content-center">
+                            @if(old('nome'))
+                                <div class="alert alert-success text-center" role="alert">
+                                    Recepcionista {{old('nome')}} cadastrado com sucesso!!
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            @endif
+                        </div>
+                    </div>
+
+                    <div class="row">
 
                         <div class="col-md-12">
                             <table class="table table-bordered table-hover table-striped table-responsive-sm">
