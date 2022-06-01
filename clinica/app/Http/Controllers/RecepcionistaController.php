@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\recepcionista;
 use Illuminate\Http\Request;
 
 class RecepcionistaController extends Controller
@@ -28,11 +29,15 @@ class RecepcionistaController extends Controller
             'estado'  => 'required'
         ]);
 
+        $params = $request->except('_token');
+        recepcionista::create($params);
+
         return redirect()->route('recepcionista.listar')->withInput();
     }
 
     public function listar()
     {
-        return view('recepcionista.listar_recepcionista');
+        $recepcionistas = recepcionista::all();
+        return view('recepcionista.listar_recepcionista', compact('recepcionistas'));
     }
 }
