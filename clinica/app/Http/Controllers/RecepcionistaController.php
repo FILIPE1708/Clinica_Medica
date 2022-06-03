@@ -40,4 +40,10 @@ class RecepcionistaController extends Controller
         $recepcionistas = recepcionista::all();
         return view('recepcionista.listar_recepcionista', compact('recepcionistas'));
     }
+
+    public function editar($id)
+    {
+        $recepcionista = recepcionista::find($id);
+        return view('recepcionista.cadastro_recepcionista', compact('recepcionista'));
+    }
 }
