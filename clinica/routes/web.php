@@ -29,6 +29,7 @@ Route::prefix('recepcionista')->group(function () {
     Route::get('/listar', [\App\Http\Controllers\RecepcionistaController::class, 'listar'])->name('recepcionista.listar');
     Route::post('/cadastrar', [\App\Http\Controllers\RecepcionistaController::class, 'cadastrar'])->name('recepcionista.cadastrar');
     Route::get('/editar/{id}', [\App\Http\Controllers\RecepcionistaController::class, 'editar'])->name('recepcionista.editar');
+    Route::post('alterar', [\App\Http\Controllers\RecepcionistaController::class, 'alterar'])->name('recepcionista.alterar');
 });
 
 #Rotas medico

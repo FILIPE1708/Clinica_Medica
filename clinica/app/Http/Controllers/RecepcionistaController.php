@@ -46,4 +46,28 @@ class RecepcionistaController extends Controller
         $recepcionista = recepcionista::find($id);
         return view('recepcionista.cadastro_recepcionista', compact('recepcionista'));
     }
+
+    public function alterar(Request $request)
+    {
+        $request->validate([
+            'nome'  => 'required',
+            'email'=> 'required',
+            'remuneracao' => 'required|numeric',
+            'jornTrab'=> 'required',
+            'pis'  => 'string|min:14|max:14',
+            'cpf'  => 'string|min:14|max:14',
+            'cep'  => 'string|min:9|max:9',
+            'logradouro' => 'required',
+            'bairro' => 'required',
+            'cidade'=> 'required',
+            'numero'  => 'required',
+            'estado'  => 'required'
+        ]);
+
+        $params = $request->except('_token');
+        $recepcionista = recepcionista::find($params['id_recepcionista']);
+        $recepcionista->update($params);
+
+        return redirect()->route('recepcionista.listar')->withInput();
+    }
 }
