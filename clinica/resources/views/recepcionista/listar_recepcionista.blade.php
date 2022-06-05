@@ -1,5 +1,6 @@
 @extends('menu_principal')
 @section('conteudo')
+
     <div class="row">
         <div class="col-md-12">
             <div class="card border-primary mt-5">
@@ -13,9 +14,9 @@
 
                     <div class="row">
                         <div class="col-md-12 mt-2 d-flex justify-content-center">
-                            @if(old('nome'))
+                            @if(isset($mensagem))
                                 <div class="alert alert-success text-center" role="alert">
-                                    Recepcionista {{old('nome')}} cadastrado com sucesso!!
+                                    <strong>{{$mensagem}}</strong>
                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -52,7 +53,7 @@
                                         <td>{{$recepcionista->cpf}}</td>
                                         <td>
                                             <a href="{{route('recepcionista.editar', $recepcionista->id)}}" class="btn btn-info text-white btn-sm ml-lg-1 mt-1"  data-toggle="tooltip" data-placement="bottom" title="Editar dados do recepcionista"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                                            <a href="" id="excluir" class="btn btn-danger btn-sm ml-lg-1 mt-1"  data-toggle="tooltip" data-placement="bottom" title="Deletar recepcionista"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                            <a href="{{route('recepcionista.excluir', $recepcionista->id)}}" id="excluir" class="btn btn-danger btn-sm ml-lg-1 mt-1"  data-toggle="tooltip" data-placement="bottom" title="Deletar recepcionista"><i class="fa fa-trash" aria-hidden="true"></i></a>
                                         </td>
                                     </tr>
 

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\recepcionista;
+use App\Models\Recepcionista;
 use Illuminate\Http\Request;
 
 class RecepcionistaController extends Controller
@@ -30,20 +30,22 @@ class RecepcionistaController extends Controller
         ]);
 
         $params = $request->except('_token');
-        recepcionista::create($params);
+        $recepcionista = Recepcionista::create($params);
+        $request->session()->flash('mensagem', "Recepcionista {$recepcionista->nome} cadastro com sucesso!!");
 
-        return redirect()->route('recepcionista.listar')->withInput();
+        return redirect()->route('recepcionista.listar');
     }
 
-    public function listar()
+    public function listar(Request $request)
     {
-        $recepcionistas = recepcionista::all();
-        return view('recepcionista.listar_recepcionista', compact('recepcionistas'));
+        $recepcionistas = Recepcionista::all();
+        $mensagem = $request->session()->get('mensagem');
+        return view('recepcionista.listar_recepcionista', compact('recepcionistas', 'mensagem'));
     }
 
     public function editar($id)
     {
-        $recepcionista = recepcionista::find($id);
+        $recepcionista = Recepcionista::find($id);
         return view('recepcionista.cadastro_recepcionista', compact('recepcionista'));
     }
 
@@ -65,9 +67,19 @@ class RecepcionistaController extends Controller
         ]);
 
         $params = $request->except('_token');
-        $recepcionista = recepcionista::find($params['id_recepcionista']);
+        $recepcionista = Recepcionista::find($params['id_recepcionista']);
         $recepcionista->update($params);
+        $request->session()->flash('mensagem', "Recepcionista {$recepcionista->nome} editado com sucesso!!");
 
-        return redirect()->route('recepcionista.listar')->withInput();
+        return redirect()->route('recepcionista.listar');
+    }
+
+    public function excluir(Request $request, $id)
+    {
+        $recepcionista = Recepcionista::find($id);
+        $recepcionista->delete();
+        $request->session()->flash('mensagem', "Recepcionista {$recepcionista->nome} excluido com sucesso!! ");
+
+        return redirect()->route('recepcionista.listar');
     }
 }
