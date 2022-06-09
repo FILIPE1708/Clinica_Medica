@@ -52,20 +52,14 @@
                                         <td>{{$recepcionista->pis}}</td>
                                         <td>{{$recepcionista->cpf}}</td>
                                         <td>
-                                            <a href="{{route('recepcionista.editar', $recepcionista->id)}}" class="btn btn-info text-white btn-sm ml-lg-1 mt-1"  data-toggle="tooltip" data-placement="bottom" title="Editar dados do recepcionista"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                                            <a href="{{route('recepcionista.excluir', $recepcionista->id)}}" id="excluir" class="btn btn-danger btn-sm ml-lg-1 mt-1"  data-toggle="tooltip" data-placement="bottom" title="Deletar recepcionista"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                            <div class="d-flex">
+                                                <a href="{{route('recepcionista.editar', $recepcionista->id)}}" class="btn btn-info text-white btn-sm ml-lg-1 mt-1"  data-toggle="tooltip" data-placement="bottom" title="Editar dados do recepcionista"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                                <form action="{{route('recepcionista.excluir', $recepcionista->id)}}" method="get" onsubmit="return confirm('Deseja excluir o recepcionista {{$recepcionista->nome}}?')">
+                                                    <button type="submit" class="btn btn-danger btn-sm ml-lg-1 mt-1"  data-toggle="tooltip" data-placement="bottom" title="Deletar recepcionista"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                                                </form>
+                                            </div>
                                         </td>
                                     </tr>
-
-                                    <script>
-                                        document.querySelector('#excluir').addEventListener('click', function (event) {
-                                            let confirmado = confirm('Deseja excluir o recepcionista {{$recepcionista->nome}}?');
-
-                                            if (confirmado === false){
-                                                event.preventDefault();
-                                            }
-                                        });
-                                    </script>
                                 @endforeach
 
                                 </tbody>

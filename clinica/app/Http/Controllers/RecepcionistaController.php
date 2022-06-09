@@ -31,7 +31,7 @@ class RecepcionistaController extends Controller
 
         $params = $request->except('_token');
         $recepcionista = Recepcionista::create($params);
-        $request->session()->flash('mensagem', "Recepcionista {$recepcionista->nome} cadastro com sucesso!!");
+        $request->session()->flash('mensagem', "Recepcionista {$recepcionista->nome} cadastrado com sucesso!!");
 
         return redirect()->route('recepcionista.listar');
     }

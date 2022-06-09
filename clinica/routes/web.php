@@ -38,6 +38,9 @@ Route::prefix('medico')->group(function () {
     Route::get('/novo', [\App\Http\Controllers\MedicoController::class, 'novo'])->name('medico.novo');
     Route::get('/listar', [\App\Http\Controllers\MedicoController::class, 'listar'])->name('medico.listar');
     Route::post('/cadastrar', [\App\Http\Controllers\MedicoController::class, 'cadastrar'])->name('medico.cadastrar');
+    Route::get('/editar/{id}', [\App\Http\Controllers\MedicoController::class, 'editar'])->name('medico.editar');
+    Route::post('/alterar', [\App\Http\Controllers\MedicoController::class, 'alterar'])->name('medico.alterar');
+    Route::get('/excluir/{id}', [\App\Http\Controllers\MedicoController::class, 'excluir'])->name('medico.excluir');
 });
 
 #Rotas consulta

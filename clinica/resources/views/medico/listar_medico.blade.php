@@ -13,9 +13,9 @@
 
                     <div class="row">
                         <div class="col-md-12 mt-2 d-flex justify-content-center">
-                            @if(old('nome'))
+                            @if(isset($mensagem))
                                 <div class="alert alert-success text-center" role="alert">
-                                    Médico {{old('nome')}} cadastrado com sucesso!!
+                                    <strong>{{$mensagem}}</strong>
                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -27,7 +27,7 @@
                     <div class="row">
 
                         <div class="col-md-12">
-                            <table class="table table-bordered table-hover table-striped table-responsive-sm">
+                            <table class="table table-bordered table-hover table-striped table-responsive-sm" id="minhaTabela">
                                 <thead  class="thead-dark">
                                 <tr>
                                     <th>Id</th>
@@ -35,46 +35,31 @@
                                     <th>Remuneração</th>
                                     <th>Email</th>
                                     <th>Jornada De Trabalho</th>
-                                    <th>PIS</th>
-                                    <th>CPF</th>
                                     <th>Especialização</th>
                                     <th>CRM</th>
                                     <th></th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Filipe Cavalcante</td>
-                                    <td>8.000</td>
-                                    <td>filipe@clinica.com</td>
-                                    <td>8:00</td>
-                                    <td>341.17551.42-7</td>
-                                    <td>000.000.000-00</td>
-                                    <td>Clínico geral</td>
-                                    <td>0000-0BR</td>
-                                    <td>
-                                        <a href="" class="btn btn-info text-white btn-sm ml-lg-1 mt-1"  data-toggle="tooltip" data-placement="bottom" title="Editar dados do recepcionista"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                                        <a href="" class="btn btn-danger btn-sm ml-lg-1 mt-1"  data-toggle="tooltip" data-placement="bottom" title="Deletar recepcionista"><i class="fa fa-trash" aria-hidden="true"></i></a>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>2</td>
-                                    <td>Mateus Silva</td>
-                                    <td>7.000</td>
-                                    <td>mateus@clinica.com</td>
-                                    <td>8:30</td>
-                                    <td>326.85652.08-2</td>
-                                    <td>111.111.111-11</td>
-                                    <td>Cirurgião</td>
-                                    <td>1111-1BR</td>
-                                    <td>
-                                        <a href="" class="btn btn-info text-white btn-sm ml-lg-1 mt-1"  data-toggle="tooltip" data-placement="bottom" title="Editar dados do recepcionista"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                                        <a href="" class="btn btn-danger btn-sm ml-lg-1 mt-1"  data-toggle="tooltip" data-placement="bottom" title="Deletar recepcionista"><i class="fa fa-trash" aria-hidden="true"></i></a>
-                                    </td>
-                                </tr>
-
+                                @foreach($medicos as $medico)
+                                    <tr>
+                                        <td>{{$medico->id}}</td>
+                                        <td>{{$medico->nome}}</td>
+                                        <td>{{$medico->remuneracao}}</td>
+                                        <td>{{$medico->email}}</td>
+                                        <td>{{$medico->jornTrab}}</td>
+                                        <td>{{$medico->especializacao}}</td>
+                                        <td>{{$medico->crm}}</td>
+                                        <td>
+                                            <div class="d-flex">
+                                                <a href="{{route('medico.editar', $medico->id)}}" class="btn btn-info text-white btn-sm ml-lg-1 mt-1"  data-toggle="tooltip" data-placement="bottom" title="Editar dados do médico"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                                <form action="{{route('medico.excluir', $medico->id)}}" method="get" onsubmit="return confirm('Deseja excluir o médico {{$medico->nome}}?')">
+                                                    <button type="submit" class="btn btn-danger btn-sm ml-lg-1 mt-1"  data-toggle="tooltip" data-placement="bottom" title="Deletar médico"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                                                </form>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>
