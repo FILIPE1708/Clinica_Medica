@@ -43,6 +43,16 @@ Route::prefix('medico')->group(function () {
     Route::get('/excluir/{id}', [\App\Http\Controllers\MedicoController::class, 'excluir'])->name('medico.excluir');
 });
 
+#Rotas enfermeiro
+Route::prefix('enfermeiro')->group(function (){
+    Route::get('novo', [\App\Http\Controllers\EnfermeiroController::class, 'novo'])->name('enfermeiro.novo');
+    Route::get('/listar', [\App\Http\Controllers\EnfermeiroController::class, 'listar'])->name('enfermeiro.listar');
+    Route::post('/cadastrar', [\App\Http\Controllers\EnfermeiroController::class, 'cadastrar'])->name('enfermeiro.cadastrar');
+    Route::get('/editar/{id}', [\App\Http\Controllers\EnfermeiroController::class, 'editar'])->name('enfermeiro.editar');
+    Route::post('/alterar', [\App\Http\Controllers\EnfermeiroController::class, 'alterar'])->name('enfermeiro.alterar');
+    Route::get('/excluir/{id}', [\App\Http\Controllers\EnfermeiroController::class, 'excluir'])->name('enfermeiro.excluir');
+});
+
 #Rotas consulta
 Route::prefix('consulta')->group(function () {
     Route::get('/novo', [\App\Http\Controllers\ConsultaController::class, 'novo'])->name('consulta.novo');

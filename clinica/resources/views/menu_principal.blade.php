@@ -35,6 +35,12 @@
                         <li>
                             <a href="{{route('medico.listar')}}">Lista De Médicos</a>
                         </li>
+                        <li>
+                            <a href="{{route('enfermeiro.novo')}}">Cadastrar Enfermeiro</a>
+                        </li>
+                        <li>
+                            <a href="{{route('enfermeiro.listar')}}">Lista De Enfermeiros</a>
+                        </li>
                     </ul>
                 </li>
                 <li>
