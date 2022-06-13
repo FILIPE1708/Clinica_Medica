@@ -17,32 +17,69 @@
             <i class="fa fa-user-md fa-5x mb-2 text-primary d-flex justify-content-center" aria-hidden="true"></i>
             <hr class="bg-primary">
             <ul class="list-unstyled components mb-5">
+
                 <li>
                     <a href="{{route('inicio')}}">Início</a>
                 </li>
+
                 <li>
                     <a href="#funcionarioSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Funcionário</a>
                     <ul class="collapse list-unstyled" id="funcionarioSubmenu">
                         <li>
-                            <a href="{{route('recepcionista.novo')}}">Cadastrar Recepcionista</a>
+                            <a href="#recepSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Recepcionista</a>
+                            <ul class="collapse list-unstyled" id="recepSubmenu">
+                                <li>
+                                    <a href="{{route('recepcionista.novo')}}">Cadastrar Recepcionista</a>
+                                </li>
+
+                                <li>
+                                    <a href="{{route('recepcionista.listar')}}">Lista De Recepcionistas</a>
+                                </li>
+                            </ul>
                         </li>
+
                         <li>
-                            <a href="{{route('recepcionista.listar')}}">Lista De Recepcionistas</a>
+                            <a href="#medSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Médico</a>
+                            <ul class="collapse list-unstyled" id="medSubmenu">
+                                <li>
+                                    <a href="{{route('medico.novo')}}">Cadastrar Médico</a>
+                                </li>
+
+                                <li>
+                                    <a href="{{route('medico.listar')}}">Lista De Médicos</a>
+                                </li>
+                            </ul>
                         </li>
+
                         <li>
-                            <a href="{{route('medico.novo')}}">Cadastrar Médico</a>
+                            <a href="#enfSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Enfermeiro</a>
+                            <ul class="collapse list-unstyled" id="enfSubmenu">
+                                <li>
+                                    <a href="{{route('enfermeiro.novo')}}">Cadastrar Enfermeiro</a>
+                                </li>
+
+                                <li>
+                                    <a href="{{route('enfermeiro.listar')}}">Lista De Enfermeiros</a>
+                                </li>
+                            </ul>
                         </li>
+
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#pacienteSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Paciente</a>
+                    <ul class="collapse list-unstyled" id="pacienteSubmenu">
                         <li>
-                            <a href="{{route('medico.listar')}}">Lista De Médicos</a>
+                            <a href="{{route('paciente.novo')}}">Cadastrar Paciente</a>
                         </li>
+
                         <li>
-                            <a href="{{route('enfermeiro.novo')}}">Cadastrar Enfermeiro</a>
-                        </li>
-                        <li>
-                            <a href="{{route('enfermeiro.listar')}}">Lista De Enfermeiros</a>
+                            <a href="{{route('paciente.listar')}}">Lista De Pacientes</a>
                         </li>
                     </ul>
                 </li>
+
                 <li>
                     <a href="#consultaSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Consulta</a>
                     <ul class="collapse list-unstyled" id="consultaSubmenu">

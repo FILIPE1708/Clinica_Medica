@@ -45,12 +45,22 @@ Route::prefix('medico')->group(function () {
 
 #Rotas enfermeiro
 Route::prefix('enfermeiro')->group(function (){
-    Route::get('novo', [\App\Http\Controllers\EnfermeiroController::class, 'novo'])->name('enfermeiro.novo');
+    Route::get('/novo', [\App\Http\Controllers\EnfermeiroController::class, 'novo'])->name('enfermeiro.novo');
     Route::get('/listar', [\App\Http\Controllers\EnfermeiroController::class, 'listar'])->name('enfermeiro.listar');
     Route::post('/cadastrar', [\App\Http\Controllers\EnfermeiroController::class, 'cadastrar'])->name('enfermeiro.cadastrar');
     Route::get('/editar/{id}', [\App\Http\Controllers\EnfermeiroController::class, 'editar'])->name('enfermeiro.editar');
     Route::post('/alterar', [\App\Http\Controllers\EnfermeiroController::class, 'alterar'])->name('enfermeiro.alterar');
     Route::get('/excluir/{id}', [\App\Http\Controllers\EnfermeiroController::class, 'excluir'])->name('enfermeiro.excluir');
+});
+
+#Rotas paciente
+Route::prefix('paciente')->group(function (){
+    Route::get('/novo', [\App\Http\Controllers\PacienteController::class, 'novo'])->name('paciente.novo');
+    Route::get('/listar', [\App\Http\Controllers\PacienteController::class, 'listar'])->name('paciente.listar');
+    Route::post('/cadastrar', [\App\Http\Controllers\PacienteController::class, 'cadastrar'])->name('paciente.cadastrar');
+    Route::get('/editar/{id}', [\App\Http\Controllers\PacienteController::class, 'editar'])->name('paciente.editar');
+    Route::post('/alterar', [\App\Http\Controllers\PacienteController::class, 'alterar'])->name('paciente.alterar');
+    Route::get('/excluir/{id}', [\App\Http\Controllers\PacienteController::class, 'excluir'])->name('paciente.excluir');
 });
 
 #Rotas consulta
