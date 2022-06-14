@@ -121,5 +121,19 @@
 <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
 <script src="{{asset('js/main.js')}}"></script>
 <script src="{{asset('js/dataTable.js')}}"></script>
+<script src="https://unpkg.com/blip-chat-widget" type="text/javascript">
+</script>
+<script>
+    (function () {
+        window.onload = function () {
+            new BlipChat()
+                .withAppKey('ZmlsaXBlMzo3YjZhOGYxNi02NGVmLTQwMGEtOTgyNC0wZDk5NmU2NDA5M2U=')
+                .withButton({"color":"#007bff","icon":""})
+                .withCustomCommonUrl('https://filipe-cavalcante-uwgon.chat.blip.ai/')
+                .build();
+        }
+    })();
+</script>
+
 </body>
 </html>
