@@ -18,6 +18,12 @@ Route::get('/', [\App\Http\Controllers\LoginController::class, 'login'])->name('
 Route::get('/login', [\App\Http\Controllers\LoginController::class, 'login']);
 Route::post('/logar', [\App\Http\Controllers\LoginController::class, 'logar'])->name('logar');
 
+#Rotas usuario
+Route::prefix('usuario')->group(function (){
+    Route::get('/novo', [\App\Http\Controllers\LoginController::class, 'novo'])->name('usuario.novo');
+    Route::post('/cadastrar', [\App\Http\Controllers\LoginController::class, 'cadastrar'])->name('usuario.cadastrar');
+});
+
 #Inicio da página
 Route::get('/inicio', function (){
    return view('inicio');

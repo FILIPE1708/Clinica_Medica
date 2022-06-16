@@ -23,6 +23,15 @@
                 </li>
 
                 <li>
+                    <a href="#usuarioSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Usuario</a>
+                    <ul class="collapse list-unstyled" id="usuarioSubmenu">
+                        <li>
+                            <a href="{{route('usuario.novo')}}">Cadastrar Usuário</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
                     <a href="#funcionarioSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Funcionário</a>
                     <ul class="collapse list-unstyled" id="funcionarioSubmenu">
                         <li>
