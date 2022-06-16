@@ -152,3 +152,10 @@ a[data-toggle="collapse"] {
     color: #333;
     margin-left: 5px;
 }
+
+.dataTables_wrapper .dataTables_paginate {
+    float: right;
+    text-align: right;
+    padding-top: .25em;
+    margin-bottom: 35px;
+}

@@ -13,21 +13,6 @@ class LoginController extends Controller
         return view('form_login');
     }
 
-    public function novo()
-    {
-        $perfis = Perfil::all();
-        return view('usuario.cadastro_usuario', compact('perfis'));
-    }
-
-    public function cadastrar(Request $request)
-    {
-        $params = $request->except('_token');
-        $usuario = Usuario::create($params);
-        $request->session()->flash('mensagem', "Usuário {$usuario->nome_usuario} cadastrado com sucesso!!");
-
-        return redirect()->back();
-    }
-
     public function logar(Request $request)
     {
         if ($request->email == 'filipecavalcante17@gmail.com' && $request->senha == '123456') {

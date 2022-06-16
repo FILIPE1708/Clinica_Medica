@@ -188,7 +188,8 @@ return [
         'current_password' => 'senha atual',
         'jornTrab' => 'jornada de trabalho',
         'remuneracao' => 'remuneração',
-        'data_consulta' => 'data da consulta'
+        'data_consulta' => 'data da consulta',
+        'nome_usuario' => 'nome'
     ],
 
 ];

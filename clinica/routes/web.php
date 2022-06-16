@@ -20,8 +20,11 @@ Route::post('/logar', [\App\Http\Controllers\LoginController::class, 'logar'])->
 
 #Rotas usuario
 Route::prefix('usuario')->group(function (){
-    Route::get('/novo', [\App\Http\Controllers\LoginController::class, 'novo'])->name('usuario.novo');
-    Route::post('/cadastrar', [\App\Http\Controllers\LoginController::class, 'cadastrar'])->name('usuario.cadastrar');
+    Route::get('/novo', [\App\Http\Controllers\UsuarioController::class, 'novo'])->name('usuario.novo');
+    Route::post('/cadastrar', [\App\Http\Controllers\UsuarioController::class, 'cadastrar'])->name('usuario.cadastrar');
+    Route::get('/editar/{id}', [\App\Http\Controllers\UsuarioController::class, 'editar'])->name('usuario.editar');
+    Route::post('/alterar', [\App\Http\Controllers\UsuarioController::class, 'alterar'])->name('usuario.alterar');
+    Route::get('/exluir/{id}', [\App\Http\Controllers\UsuarioController::class, 'excluir'])->name('usuario.excluir');
 });
 
 #Inicio da página
