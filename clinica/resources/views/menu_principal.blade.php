@@ -15,6 +15,8 @@
     <nav id="sidebar">
         <div class="p-4 pt-5">
             <i class="fa fa-user-md fa-5x mb-2 text-primary d-flex justify-content-center" aria-hidden="true"></i>
+            <p class="text-primary text-center">{{session('usuario')}}</p>
+            <a href="{{route('logout')}}" class="d-flex justify-content-center" data-toggle="tooltip" data-placement="bottom" title="Sair"><i class="fa fa-sign-out fa-2x" aria-hidden="true"></i></a>
             <hr class="bg-primary">
             <ul class="list-unstyled components mb-5">
 
@@ -26,7 +28,7 @@
                     <a href="#usuarioSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Usuario</a>
                     <ul class="collapse list-unstyled" id="usuarioSubmenu">
                         <li>
-                            <a href="{{route('usuario.novo')}}">Cadastrar Usuário</a>
+                            <a href="{{route('usuario.novo')}}">Criar Usuário</a>
                         </li>
                     </ul>
                 </li>

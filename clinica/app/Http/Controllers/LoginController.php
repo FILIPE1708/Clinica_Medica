@@ -15,11 +15,20 @@ class LoginController extends Controller
 
     public function logar(Request $request)
     {
-        if ($request->email == 'filipecavalcante17@gmail.com' && $request->senha == '123456') {
-            return redirect()->route('inicio');
+        if (Usuario::where('email', $request->email)->exists() && Usuario::where('senha', $request->senha)->exists()) {
+            $usuario = Usuario::firstWhere('email', $request->email);
+            session(['usuario' => $usuario->nome_usuario]);
+            session(['perfil' => $usuario->perfil_id]);
+
+            return view('inicio');
         }
 
         else
             return redirect()->back()->with('error', 'Sua senha ou login estão incorretos.');
+    }
+
+    public function logout(Request $request) {
+        $request->session()->flush();
+        return view('form_login');
     }
 }

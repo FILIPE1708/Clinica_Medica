@@ -14,12 +14,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 #Rotas login
-Route::get('/', [\App\Http\Controllers\LoginController::class, 'login'])->name('login');
-Route::get('/login', [\App\Http\Controllers\LoginController::class, 'login']);
+Route::get('/', function (){
+    return redirect()->route('login');
+});
+
+Route::get('/login', [\App\Http\Controllers\LoginController::class, 'login'])->name('login');
 Route::post('/logar', [\App\Http\Controllers\LoginController::class, 'logar'])->name('logar');
+Route::get('/logout', [\App\Http\Controllers\LoginController::class, 'logout'])->name('logout');
 
 #Rotas usuario
-Route::prefix('usuario')->group(function (){
+Route::prefix('usuario')->middleware(['login'])->group(function (){
     Route::get('/novo', [\App\Http\Controllers\UsuarioController::class, 'novo'])->name('usuario.novo');
     Route::post('/cadastrar', [\App\Http\Controllers\UsuarioController::class, 'cadastrar'])->name('usuario.cadastrar');
     Route::get('/editar/{id}', [\App\Http\Controllers\UsuarioController::class, 'editar'])->name('usuario.editar');
@@ -30,10 +34,10 @@ Route::prefix('usuario')->group(function (){
 #Inicio da página
 Route::get('/inicio', function (){
    return view('inicio');
-})->name('inicio');
+})->middleware(['login'])->name('inicio');
 
 #Rotas recepcionista
-Route::prefix('recepcionista')->group(function () {
+Route::prefix('recepcionista')->middleware(['login'])->group(function () {
     Route::get('/novo', [\App\Http\Controllers\RecepcionistaController::class, 'novo'])->name('recepcionista.novo');
     Route::get('/listar', [\App\Http\Controllers\RecepcionistaController::class, 'listar'])->name('recepcionista.listar');
     Route::post('/cadastrar', [\App\Http\Controllers\RecepcionistaController::class, 'cadastrar'])->name('recepcionista.cadastrar');
@@ -43,7 +47,7 @@ Route::prefix('recepcionista')->group(function () {
 });
 
 #Rotas medico
-Route::prefix('medico')->group(function () {
+Route::prefix('medico')->middleware(['login'])->group(function () {
     Route::get('/novo', [\App\Http\Controllers\MedicoController::class, 'novo'])->name('medico.novo');
     Route::get('/listar', [\App\Http\Controllers\MedicoController::class, 'listar'])->name('medico.listar');
     Route::post('/cadastrar', [\App\Http\Controllers\MedicoController::class, 'cadastrar'])->name('medico.cadastrar');
@@ -53,7 +57,7 @@ Route::prefix('medico')->group(function () {
 });
 
 #Rotas enfermeiro
-Route::prefix('enfermeiro')->group(function (){
+Route::prefix('enfermeiro')->middleware(['login'])->group(function (){
     Route::get('/novo', [\App\Http\Controllers\EnfermeiroController::class, 'novo'])->name('enfermeiro.novo');
     Route::get('/listar', [\App\Http\Controllers\EnfermeiroController::class, 'listar'])->name('enfermeiro.listar');
     Route::post('/cadastrar', [\App\Http\Controllers\EnfermeiroController::class, 'cadastrar'])->name('enfermeiro.cadastrar');
@@ -63,7 +67,7 @@ Route::prefix('enfermeiro')->group(function (){
 });
 
 #Rotas paciente
-Route::prefix('paciente')->group(function (){
+Route::prefix('paciente')->middleware(['login'])->group(function (){
     Route::get('/novo', [\App\Http\Controllers\PacienteController::class, 'novo'])->name('paciente.novo');
     Route::get('/listar', [\App\Http\Controllers\PacienteController::class, 'listar'])->name('paciente.listar');
     Route::post('/cadastrar', [\App\Http\Controllers\PacienteController::class, 'cadastrar'])->name('paciente.cadastrar');
@@ -73,7 +77,7 @@ Route::prefix('paciente')->group(function (){
 });
 
 #Rotas consulta
-Route::prefix('consulta')->group(function () {
+Route::prefix('consulta')->middleware(['login'])->group(function () {
     Route::get('/novo', [\App\Http\Controllers\ConsultaController::class, 'novo'])->name('consulta.novo');
     Route::post('/cadastrar', [\App\Http\Controllers\ConsultaController::class, 'cadastrar'])->name('consulta.cadastrar');
 });
