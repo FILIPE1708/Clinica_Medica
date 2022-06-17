@@ -80,4 +80,10 @@ Route::prefix('paciente')->middleware(['login'])->group(function (){
 Route::prefix('consulta')->middleware(['login'])->group(function () {
     Route::get('/novo', [\App\Http\Controllers\ConsultaController::class, 'novo'])->name('consulta.novo');
     Route::post('/cadastrar', [\App\Http\Controllers\ConsultaController::class, 'cadastrar'])->name('consulta.cadastrar');
+    Route::get('/editar/{id}', [\App\Http\Controllers\ConsultaController::class, 'editar'])->name('consulta.editar');
+    Route::post('/alterar',[\App\Http\Controllers\ConsultaController::class, 'alterar'])->name('consulta.alterar');
+    Route::get('/realizar/{id}', [\App\Http\Controllers\ConsultaController::class, 'realizar'])->name('consulta.realizar');
+    Route::post('/finalizar', [\App\Http\Controllers\ConsultaController::class, 'finalizar'])->name('consulta.finalizar');
+    Route::get('/excluir/{id}', [\App\Http\Controllers\ConsultaController::class, 'excluir'])->name('consulta.excluir');
+    Route::get('detalhes/{id}', [\App\Http\Controllers\ConsultaController::class, 'detalhes'])->name('consulta.detalhes');
 });

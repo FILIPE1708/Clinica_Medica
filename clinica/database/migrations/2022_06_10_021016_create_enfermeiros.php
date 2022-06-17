@@ -16,7 +16,7 @@ class CreateEnfermeiros extends Migration
         Schema::create('enfermeiros', function (Blueprint $table) {
             $table->id();
             $table->string('nome');
-            $table->string('email');
+            $table->string('email')->unique();
             $table->float('remuneracao');
             $table->string('telefone')->nullable();
             $table->time('jornTrab');

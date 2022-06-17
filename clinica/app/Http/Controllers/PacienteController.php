@@ -17,7 +17,6 @@ class PacienteController extends Controller
         $request->validate([
             'nome'  => 'required',
             'telefone'=> 'required',
-            'alergias'=> 'required',
             'peso'  => 'required|numeric',
             'altura'  => 'required|numeric',
             'tipo_sangue' => 'required',
@@ -55,7 +54,6 @@ class PacienteController extends Controller
         $request->validate([
             'nome'  => 'required',
             'telefone'=> 'required',
-            'alergias'=> 'required',
             'peso'  => 'required|numeric',
             'altura'  => 'required|numeric',
             'tipo_sangue' => 'required',

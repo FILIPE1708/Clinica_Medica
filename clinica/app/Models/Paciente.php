@@ -12,4 +12,9 @@ class Paciente extends Model
     protected $table = 'pacientes';
     public $timestamps = false;
     protected $guarded = array('id');
+
+    public function consultas()
+    {
+        return $this->hasMany('App\Models\Consulta', 'paciente_id', 'id');
+    }
 }

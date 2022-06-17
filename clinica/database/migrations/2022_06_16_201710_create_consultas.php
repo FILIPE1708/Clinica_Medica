@@ -17,6 +17,7 @@ class CreateConsultas extends Migration
             $table->id();
             $table->date('data_consulta');
             $table->string('diagnostico')->nullable();
+            $table->boolean('finalizado')->default(false);
             $table->integer('usuario_id');
             $table->integer('medico_id');
             $table->integer('paciente_id');

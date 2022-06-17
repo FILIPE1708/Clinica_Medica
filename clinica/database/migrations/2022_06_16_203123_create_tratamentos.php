@@ -19,6 +19,7 @@ class CreateTratamentos extends Migration
             $table->date('data_ini');
             $table->date('data_fim')->nullable();
             $table->string('evolucao')->nullable();
+            $table->boolean('finalizado')->default(false);
             $table->integer('usuario_id');
             $table->integer('enfermeiro_id');
             $table->integer('paciente_id');

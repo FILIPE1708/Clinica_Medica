@@ -17,7 +17,7 @@ class CreatePacientes extends Migration
             $table->id();
             $table->string('nome');
             $table->string('telefone');
-            $table->string('alergias');
+            $table->string('alergias')->nullable();
             $table->string('plano_saude')->nullable();
             $table->float('peso');
             $table->float('altura');

@@ -52,7 +52,7 @@
                             <div class="col-md-6">
                                 <label for="perfil_id"><strong>Perfil:</strong></label>
                                 <select id="perfil_id" name="perfil_id" class="form-control">
-                                    @if(isset($usuario->perfil->id))
+                                    @if(isset($usuario->perfil_id))
                                         <option value="{{$usuario->perfil->id}}">{{$usuario->perfil->tipo}}</option>
 
                                         @foreach($perfis as $p)
@@ -100,7 +100,7 @@
 
 
         <div class="col-md-12">
-            <table class="table table-bordered table-hover table-striped table-responsive-sm" id="minhaTabela">
+            <table class="table table-bordered table-hover table-striped table-responsive-sm minhaTabela">
                 <thead  class="thead-dark">
                 <tr>
                     <th>Id</th>

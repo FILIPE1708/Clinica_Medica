@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $('#minhaTabela').DataTable({
+    $('.minhaTabela').DataTable({
         'dom': 'Blfrtip',
         'buttons': [
 

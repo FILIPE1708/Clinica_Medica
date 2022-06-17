@@ -28,7 +28,7 @@
                     <div class="row">
 
                         <div class="col-md-12">
-                            <table class="table table-bordered table-hover table-striped table-responsive-sm" id="minhaTabela">
+                            <table class="table table-bordered table-hover table-striped table-responsive-sm minhaTabela">
                                 <thead  class="thead-dark">
                                 <tr>
                                     <th>Id</th>

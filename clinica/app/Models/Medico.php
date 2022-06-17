@@ -12,4 +12,9 @@ class Medico extends Model
     protected $table = 'medicos';
     public $timestamps = false;
     protected $guarded = array('id');
+
+    public function consultas()
+    {
+        return $this->hasMany('App\Models\Consulta', 'medico_id', 'id');
+    }
 }

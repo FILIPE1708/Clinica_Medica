@@ -18,9 +18,10 @@ class LoginController extends Controller
         if (Usuario::where('email', $request->email)->exists() && Usuario::where('senha', $request->senha)->exists()) {
             $usuario = Usuario::firstWhere('email', $request->email);
             session(['usuario' => $usuario->nome_usuario]);
+            session(['id_usuario' => $usuario->id]);
             session(['perfil' => $usuario->perfil_id]);
 
-            return view('inicio');
+            return redirect()->route('inicio');
         }
 
         else
@@ -29,6 +30,6 @@ class LoginController extends Controller
 
     public function logout(Request $request) {
         $request->session()->flush();
-        return view('form_login');
+        return redirect()->route('login');
     }
 }

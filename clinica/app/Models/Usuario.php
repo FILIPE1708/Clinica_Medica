@@ -17,4 +17,9 @@ class Usuario extends Model
     {
         return $this->belongsTo('App\Models\Perfil', 'perfil_id');
     }
+
+    public function consultas()
+    {
+        return $this->hasMany('App\Models\Consulta', 'usuario_id', 'id');
+    }
 }
